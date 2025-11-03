@@ -6,12 +6,28 @@ class GameView{
     }
 
     preloadGameAssets(){
+        console.log("chargement...");
         var preload = new createjs.LoadQueue();
-        preload.addEventListener("fileload", event => {
-            console.log(event.result);
-            window.location.hash = "game-view";
-        });
-        preload.loadFile("game-assets/sheet_tanks.png");
+        preload.loadManifest("game-assets/manifest.json");
+        var loadingProgress = 0;
+        var bar = document.getElementById("myBar");
+
+        preload.on("progress", event => {
+            console.log(event);
+            loadingProgress = event.progress * 100;
+            bar.style.width = loadingProgress + "%";
+
+        }, this);
+        preload.on("fileload", event => {
+            //console.log(event);
+            /*if (event.item.id == "test")
+                this.bitmap = new createjs.Bitmap(event.result);*/
+        }, this);
+        preload.on("complete", event => {
+            console.log(event);
+            console.log("image chargee");
+            this.display();
+        } ,this);
     }
 
     displayLoadScreen(){

@@ -1,27 +1,8 @@
 class Game{
     constructor(){
         this.html = document.getElementById("html-game").innerHTML;
-        //this.image = new Image();
-        this.images = [{id:"test", src:"game-assets/sheet_tanks.png"}];
-        //this.image.addEventListener("load", evenementload => this.creerSprite(evenementload));
-        this.preloadGameAssets();
     }
-    preloadGameAssets(){
-        console.log("chargement...");
-        var preload = new createjs.LoadQueue();
-        preload.loadManifest("game-assets/manifest.json");
-
-        preload.on("fileload", event => {
-            console.log(event);
-            if (event.item.id == "test")
-                this.bitmap = new createjs.Bitmap(event.result);
-        }, this);
-        preload.on("complete", event => {
-            //console.log(event);
-            console.log("image chargee");
-            this.estCharge = true;
-        } ,this);
-    }
+    
     creerSprite(evenementload){
         this.bitmap = new createjs.Bitmap(this.image);
     }
