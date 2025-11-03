@@ -10,8 +10,8 @@ class Application{
 
 
 
-        this.window.addEventListener("hashchange", () => this.naviguer());
-        this.naviguer();
+        this.window.addEventListener("hashchange", () => this.navigate());
+        this.navigate();
         
 
         /*  This part is to wait for the app to load in a Apache Cordova mobile app.
@@ -24,7 +24,7 @@ class Application{
         this.naviguer();
     }*/
 
-    naviguer(){
+    navigate(){
         let hash = this.window.location.hash;
         if(!hash){
             this.gameController.displayLoadScreen();
