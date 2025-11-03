@@ -1,6 +1,9 @@
 # CreateJS-MVC-Application-Template
 'One Page Application' Template that uses CreateJS libraries to create web games (or applications).
 
+## live demo
+https://www.jojodev.website/CreateJS-MVC-Application-Template/
+
 ## manifest file
 https://createjs.com/docs/preloadjs/classes/LoadQueue.html  
 The manifest.json file is used by the PreloadJS library to load files
