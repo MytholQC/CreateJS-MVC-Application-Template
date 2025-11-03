@@ -1,37 +1,43 @@
 class Application{
-    constructor(window, gameView, game){
+    constructor(window, gameView, MainMenuView, gameController){
         this.window = window;
-        this.game = game;
+        this.gameController = gameController;
         this.gameView = gameView;
+        this.mainMenuView = MainMenuView;
+
+        this.gameView.controller = this.gameController;
+        this.gameController.gameView = this.gameView;
+
+
 
         this.window.addEventListener("hashchange", () => this.naviguer());
         this.naviguer();
         
+
+        /*  This part is to wait for the app to load in a Apache Cordova mobile app.
+            If you need it, remove "this.window.addEventListener("hashchange", () => this.naviguer());" and "this.naviguer();" in the contructor().*/
         //document.addEventListener("deviceready", () => this.initialiserNavigation(), false);
     }
     
     /*initialiserNavigation(){
-        console.log("Application-->initialiserNavigation");
-
-        //this.window.addEventListener("hashchange", () => this.naviguer());
-
-        setTimeout(() => this.naviguer(), 3000);
+        this.window.addEventListener("hashchange", () => this.naviguer());
+        this.naviguer();
     }*/
 
     naviguer(){
         let hash = this.window.location.hash;
         if(!hash){
-            this.gameView.displayLoadScreen();
+            this.gameController.displayLoadScreen();
             //this.vueListeCarte.initialiser(this.carteDAO.lister());
             //this.vueListeCarte.afficher();
-        } else  if (hash.match(/^#game-view/)){
-            this.gameView.display()
-        } else if (hash.match(/^#html-game/)){
-            this.game.display();
-            this.game.startGame();
+        } else  if (hash.match(/^#html-game-menu-view/)){
+            this.mainMenuView.display()
+        } else if (hash.match(/^#html-game-view/)){
+            this.gameView.display();
+            this.gameView.startGame();
         }
     }
 
 }
 
-var application = new Application(window, new GameView(), new Game());
+new Application(window, new GameView(), new MainMenuView(),  new GameController());
