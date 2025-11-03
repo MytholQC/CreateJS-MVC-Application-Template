@@ -10,6 +10,7 @@ class GameView{
     
     display(){
         document.getElementsByTagName("body")[0].innerHTML = this.html;
+        document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/RE_76DW9Lro/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBfPhL6ugtM-W3BgjY3hXG8Pp4NA')";
         this.canvas = document.getElementsByTagName("canvas")[0];
 
         const ratio = window.devicePixelRatio || 1;
