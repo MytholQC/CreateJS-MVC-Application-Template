@@ -16,8 +16,8 @@ class GameView{
         const ratio = window.devicePixelRatio || 1;
         this.canvas.width = window.innerWidth * ratio;
         this.canvas.height = window.innerHeight * ratio;
-        this.canvas.style.width = '100vw';
-        this.canvas.style.height = '100vh';
+        //this.canvas.style.width = '100vw';
+        //this.canvas.style.height = '100vh';
         
         this.scene = new createjs.Stage(this.canvas);
         this.scene.scale = ratio;
