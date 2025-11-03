@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="Application.js"></script>
+    <script src="Game.js"></script>
+    <script src="views/GameView.js"></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
+</head>
+<body>
+    <script type="html" id="html-loading-game">
+        <div>
+            <p>game loading</p>
+        </div>
+    </script>
+    <script type="html" id="html-game-view">
+        <div>
+            <p>game menu</p>
+            <button onclick="application.gameView.startGameButton();">start game</button>
+        </div>
+    </script>
+    <script type="html" id="html-game">
+        <canvas> 
+        </canvas>
+    </script>
+</body>
+</html>
