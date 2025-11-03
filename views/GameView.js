@@ -31,6 +31,7 @@ class GameView{
     
     startGame(){
         createjs.Ticker.addEventListener("tick", event => this.handleTick(event));
+        createjs.Ticker.framerate = 120;
     }
 
     handleTick(event) {

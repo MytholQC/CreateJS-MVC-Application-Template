@@ -20,14 +20,17 @@ class Game{
             if (this.helloWorld.direction == "top-left")
                 this.helloWorld.direction = "top-right";
             else this.helloWorld.direction = "bottom-right";
-        }
 
+            this.changeColor();
+        } 
         //right bound
-        if (this.helloWorld.bitmap.x + this.helloWorld.bitmap.getBounds().width >= this.scene.getBounds().width){
+        else if (this.helloWorld.bitmap.x + this.helloWorld.bitmap.getBounds().width >= this.scene.getBounds().width){
             //console.log("right Bound");
             if (this.helloWorld.direction == "top-right")
                 this.helloWorld.direction = "top-left";
             else this.helloWorld.direction = "bottom-left";
+
+            this.changeColor();
         }
 
         //top bound
@@ -36,15 +39,27 @@ class Game{
             if (this.helloWorld.direction == "top-left")
                 this.helloWorld.direction = "bottom-left";
             else this.helloWorld.direction = "bottom-right";
+
+            this.changeColor();
         }       
         //bottom bound
-        if (this.helloWorld.bitmap.y + this.helloWorld.bitmap.getBounds().height >= this.scene.getBounds().height){
+        else if (this.helloWorld.bitmap.y + this.helloWorld.bitmap.getBounds().height >= this.scene.getBounds().height){
             //console.log("bottom Bound");
             if (this.helloWorld.direction == "bottom-right")
                 this.helloWorld.direction = "top-right";
             else this.helloWorld.direction = "top-left";
+
+            this.changeColor();
         }
 
         this.helloWorld.move();
+    }
+
+    changeColor(){
+
+        this.helloWorld.bitmap.filters = [
+            new createjs.ColorFilter(0,0,0,1, Math.floor(Math.random() * 256),Math.floor(Math.random() * 256),Math.floor(Math.random() * 256,0))
+        ];
+        this.helloWorld.bitmap.cache(0,0, 1200,720);
     }
 }

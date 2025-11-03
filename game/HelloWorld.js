@@ -3,8 +3,8 @@ class HelloWorld{
         this.scene = scene;
         this.assets = assets;
 
-        this.bitmap = new createjs.Bitmap(this.assets.helloWorld.result);
-        this.bitmap.scale = 0.5;
+        this.bitmap = new createjs.Bitmap(this.assets.dvd.result);
+        this.bitmap.scale = 0.2;
         this.bitmap.setBounds(0,0, this.bitmap.getBounds().width * this.bitmap.scale, this.bitmap.getBounds().height * this.bitmap.scale);
         this.bitmap.x = 1;
         this.bitmap.y = 1;
@@ -12,7 +12,7 @@ class HelloWorld{
         this.scene.addChild(this.bitmap);
 
         this.direction = "bottom-right";
-        this.speed = 3;
+        this.speed = 2;
     }
 
     move(){
